@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: white;
+  background: rgba(7, 24, 41, 1);
+}
+
+#GoogleSign{
+  border-color: rgba(66, 85, 104, 1);
+  @apply w-8/12 m-auto h-10 border-2 rounded mt-4
+}
+
+#container{
+  background-color: #132434;
+}
+
+#Heading{
+  @apply flex flex-col text-center text-3xl mt-6
+}
+
+#Form{
+  @apply flex flex-col mt-9
+}
+
+form{
+  @apply flex flex-col gap-y-3
+}
+
+form input{
+  @apply bg-sky-800 w-8/12 m-auto h-10 rounded ps-3
+}
+
+form button{
+  @apply bg-sky-500 w-8/12 m-auto h-10 rounded
+}
+
+.bottomText{
+  @apply flex justify-center absolute left-0 right-0 bottom-5
+}
+
+.bottomText a{
+  @apply text-sky-500 ml-2
+}
+
+#GoogleSign div{
+  @apply flex flex-row justify-center gap-x-4
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
