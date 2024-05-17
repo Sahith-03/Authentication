@@ -1,47 +1,3 @@
-// 'use client'
-
-// import '../../public/sign-up.css';
-// import React, { useEffect, useState } from 'react';
-// import {UserAuth} from '../context/AuthContext';
-// import {useRouter} from 'next/navigation';
-// import Template from '../app/template';
-
-// export default function Home() {  
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const { user, googleSignIn,signUp } = UserAuth();
-//   const router = useRouter();
-
-//   const handleGoogleSignIn = async () => {
-//     try {
-//       await googleSignIn();
-//       router.push('/welcome');
-//     } catch (err) {
-//       console.log(err);
-//     }         
-//   }
-
-//   const handleSignUp = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await signUp(email, password);
-//       router.push('/welcome');
-//     } catch (error) {
-//       console.error('Error signing up:', error);
-//     }
-//   };
-
-//   const Heading = "Sign up";
-//   const Alternative = "Sign In";
-//   const flag = true;
-
-//   return (
-//       <div>
-//         <Template Heading={Heading} handleSignUp={handleSignUp} email={email} password={password} flag={flag} handleGoogleSignIn={handleGoogleSignIn} Alternative={Alternative}/>
-//       </div>
-//     );
-// }
-
 'use client';
 
 import '../../public/sign-up.css';
@@ -85,6 +41,7 @@ export default function Home() {
     <div>
       <div className="flex h-screen">
         <img src="image.png" className="w-1/2" id="bgimage" alt="Background" />
+        {/* <Image /> */}
         <div id='container' className={`${poppins.className} border w-1/3 h-1/2 rounded-3xl m-auto relative`}>
           <div id='Heading'>
             <label>Sign Up</label>

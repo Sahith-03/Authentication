@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           <div class='bottomText' >
           <p>
-            Don't have an account? 
+            Don&apos;t have an account? 
           </p>
           <a href="/">
               Sign Up
