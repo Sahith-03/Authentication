@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { UserAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { Poppins } from 'next/font/google';
+import Link from 'next/link';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const poppins = Poppins({ 
   subsets: ['latin'], 
@@ -15,6 +17,8 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { googleSignIn, signUp } = UserAuth();
   const router = useRouter();
 
@@ -51,7 +55,7 @@ export default function SignUp() {
       <div className="absolute bottom-0 left-10 w-72 h-72 bg-blue-600 rounded-full opacity-25 animate-blob"></div>
 
       {/* Star Particles */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
@@ -66,7 +70,7 @@ export default function SignUp() {
       </div>
 
       {/* Floating Sparkles */}
-      <div className="absolute inset-0 animate-pulse-slow">
+      <div className="absolute inset-0 pointer-events-none animate-pulse-slow">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -115,27 +119,41 @@ export default function SignUp() {
           {/* Password */}
           <div className="relative">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder=" "
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
+              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
               required
             />
             <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400 transition-all duration-300">Password</label>
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
 
           {/* Confirm Password */}
           <div className="relative">
             <input
-              type="password"
+              type={showConfirmPassword ? 'text' : 'password'}
               placeholder=" "
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
+              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
               required
             />
             <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400 transition-all duration-300">Confirm Password</label>
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+            >
+              {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
 
           {/* Submit */}
@@ -159,8 +177,8 @@ export default function SignUp() {
         </div>
 
         <div className="text-center text-white/60 text-sm mt-4">
-          Already have an account?{' '}
-          <a href="/" className="text-purple-400 hover:underline">Login</a>
+        Already have an account?{' '}
+        <Link href="/" className="text-purple-400 hover:underline">Login</Link>
         </div>
       </div>
     </div>
