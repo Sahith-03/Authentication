@@ -108,80 +108,105 @@ export default function SignUp() {
         <form onSubmit={handleSignUp} className="flex flex-col gap-5">
           
           {/* Name */}
-          <div className="relative">
-            <input
-              type="text"
-              placeholder=" "
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 hover:bg-white/30"
-              required
-            />
-            <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400 ">Full Name</label>
-          </div>
+<div className="relative">
+  <input
+    type="text"
+    placeholder=" "
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full 
+               focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 hover:bg-white/30"
+    required
+  />
+  <label className="absolute left-4 top-4 text-white/50 transition-all duration-300
+                    peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50
+                    peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400
+                    peer-valid:top-1 peer-valid:text-sm peer-valid:text-pink-400">
+    Full Name
+  </label>
+</div>
 
-          {/* Email */}
-          <div className="relative">
-            <input
-              type="email"
-              placeholder=" "
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 hover:bg-white/30"
-              required
-            />
-            <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400 transition-all duration-300">Email</label>
-          </div>
+{/* Email */}
+<div className="relative">
+  <input
+    type="email"
+    placeholder=" "
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full 
+               focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 hover:bg-white/30"
+    required
+  />
+  <label className="absolute left-4 top-4 text-white/50 transition-all duration-300
+                    peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50
+                    peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-400
+                    peer-valid:top-1 peer-valid:text-sm peer-valid:text-pink-400">
+    Email
+  </label>
+</div>
 
           {/* Password */}
-          <div className="relative">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder=" "
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
-              required
-            />
-            <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400 transition-all duration-300">Password</label>
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
-            >
-              {showPassword ? <FiEyeOff /> : <FiEye />}
-            </button>
-          </div>
+  <div className="relative">
+    <input
+      type={showPassword ? 'text' : 'password'}
+      placeholder=" "
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
+      required
+    />
+    <label className="absolute left-4 top-4 text-white/50 transition-all duration-300
+                      peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50
+                      peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400
+                      peer-valid:top-1 peer-valid:text-sm peer-valid:text-indigo-400">
+      Password
+    </label>
+    <button
+      type="button"
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+    >
+      {showPassword ? <FiEyeOff /> : <FiEye />}
+    </button>
+  </div>
 
-          {/* Confirm Password */}
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? 'text' : 'password'}
-              placeholder=" "
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
-              required
-            />
-            <label className="absolute left-4 top-4 text-white/50 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400 transition-all duration-300">Confirm Password</label>
-            <button
-              type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
-            >
-              {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
-            </button>
-          </div>
+  {/* Confirm Password */}
+  <div className="relative">
+    <input
+      type={showConfirmPassword ? 'text' : 'password'}
+      placeholder=" "
+      value={confirmPassword}
+      onChange={(e) => setConfirmPassword(e.target.value)}
+      className="peer bg-white/20 placeholder-transparent border border-white/30 rounded-lg p-4 w-full pr-12 
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-300 hover:bg-white/30"
+      required
+    />
+    <label className="absolute left-4 top-4 text-white/50 transition-all duration-300
+                      peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50
+                      peer-focus:top-1 peer-focus:text-sm peer-focus:text-indigo-400
+                      peer-valid:top-1 peer-valid:text-sm peer-valid:text-indigo-400">
+      Confirm Password
+    </label>
+    <button
+      type="button"
+      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+      className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+    >
+      {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+    </button>
+  </div>
 
-          {/* Submit */}
-          <button
-            type="submit"
-            className="relative group overflow-hidden bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 py-3 rounded-lg font-semibold shadow-lg hover:shadow-indigo-500/50 transition-transform duration-300 hover:scale-105"
-          >
-            <span className="absolute inset-0 bg-white/10 blur-md group-hover:opacity-30 transition-opacity duration-300"></span>
-            Sign Up
-          </button>
-        </form>
+  {/* Submit Button */}
+  <button
+    type="submit"
+    className="relative group overflow-hidden bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 py-3 rounded-lg 
+               font-semibold shadow-lg hover:shadow-indigo-500/50 transition-transform duration-300 hover:scale-105"
+  >
+    <span className="absolute inset-0 bg-white/10 blur-md group-hover:opacity-30 transition-opacity duration-300"></span>
+    Sign Up
+  </button>
+</form>
 
         <div className="flex items-center gap-3 justify-center mt-4">
           <button
